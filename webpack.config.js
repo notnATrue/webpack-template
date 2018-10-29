@@ -29,14 +29,14 @@ module.exports = {
           }
         ]
       },
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader", "postcss-loader"]
-      },
     //   {
     //     test: /\.css$/,
-    //     use: [, "css-loader"]
-    //   }
+    //     use: ["style-loader", "css-loader", "postcss-loader"]
+    //   },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader"]
+      }
     ]
   },
   plugins: [
@@ -45,7 +45,7 @@ module.exports = {
       filename: "./index.html"
     }),
     new MiniCssExtractPlugin({
-      filename: "my.css",
+      filename: "style.css",
       chunkFilename: "[id].css"
     })
   ]
